@@ -28,7 +28,7 @@ void IArray<T>::add(T item, uint32_t index)
         return;
     }
     if (m_capacity - m_size > 0) {
-        for (auto i = m_size - 1ul; i >= index; --i) {
+        for (auto i = static_cast<int>(m_size - 1ul); i >= static_cast<int>(index); --i) {
             m_data[i + 1] = m_data[i];
         }
         m_data[index] = item;
